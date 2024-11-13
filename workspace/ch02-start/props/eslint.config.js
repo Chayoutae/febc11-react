@@ -35,5 +35,6 @@ export default [
       ],
     },
     'no-unused-vars': 1,
+    'react/prop-types': "1"
   },
 ]
