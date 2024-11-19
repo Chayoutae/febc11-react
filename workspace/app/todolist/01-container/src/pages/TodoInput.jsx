@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
 function TodoInput({ addItem }){
     const [title, setTitle] = useState('');
@@ -25,4 +26,10 @@ function TodoInput({ addItem }){
       </div>
     );
   }
+
+// PropTypes 정의
+TodoInput.propTypes = {
+  addItem: PropTypes.func.isRequired,
+};
+
 export default TodoInput;
