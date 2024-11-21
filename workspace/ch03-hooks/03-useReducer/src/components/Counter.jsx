@@ -22,6 +22,7 @@ function Counter({ children = '0' }){
   };
 
   const handleReset = event => {
+    // setCount(initCount);
     countDispatch({type: 'RESET', value: initCount });
   };
 
