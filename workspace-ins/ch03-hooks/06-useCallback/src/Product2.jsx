@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import { memo } from "react";
 
-const Product = memo(function Product({ name, price, mainImage, content }){
-// function Product({ name, price, mainImage, content }){
+const Product = memo(function Product({ product: { name, price, mainImage, content } }){
   // 복잡한 로직
   console.log('Product 렌더링.');
 
@@ -18,14 +17,15 @@ const Product = memo(function Product({ name, price, mainImage, content }){
       </div>
     </>
   );
-// }
 });
 
 Product.propTypes = {
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  mainImage: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  product: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    mainImage: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Product;
