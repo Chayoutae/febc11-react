@@ -11,23 +11,30 @@ function TodoList() {
     <div id="main">
       <h2>할일 목록</h2>
       <div className="todo">
-        <Link to="/todo/add">추가</Link>
+        {/* <Link to="/todo/add">추가</Link> */}
+        <a href="./add">추가</a>
 
         <div>
           <input type="text" placeholder="검색" />
           <button type="submit">검색</button>
         </div>
 
-        <ul>
-          {todos.map((todo) => (
-            <li key={todo.id}>
-              {todo.id}{" "}
-              <Link to={`/todo/${todo.id}`}>
-                {todo.completed ? <del>{todo.title}</del> : todo.title}
-              </Link>{" "}
-              <button>삭제</button>
-            </li>
-          ))}
+        <ul className="todolist">
+          <li>
+            <span>1</span>
+            <a href="./list/1">잠자기</a>
+            <a href="./list">삭제</a>
+          </li>
+          <li>
+            <span>2</span>
+            <a href="./tododetail.html">자바스크립트 복습</a>
+            <a href="./todolist.html">삭제</a>
+          </li>
+          <li>
+            <span>3</span>
+            <a href="./list/1"><s>리액트 과제 하기</s></a>
+            <a href="./list">삭제</a>
+          </li>
         </ul>
       </div>
     </div>
