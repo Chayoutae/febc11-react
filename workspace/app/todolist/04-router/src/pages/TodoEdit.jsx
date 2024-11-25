@@ -1,25 +1,25 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function TodoEdit() {
-  const { id } = useParams();
-
   return (
-    <div id="main">
+    <>
       <h2>할일 수정</h2>
       <div className="todo">
-        <div>
-          제목 :<input type="text" />
-        </div>
-        <div>
-          내용 :<textarea></textarea>
-        </div>
-        <div>
-          완료 :<input type="checkbox" />
-        </div>
-        <Link to={`/todo/${id}`}>수정</Link>{" "}
-        <Link to={`/todo/${id}`}>취소</Link>
+        <form>
+          <label htmlFor="title">제목 :</label>
+          <input type="text" id="title" value="잠자기" autoFocus />
+          <br/>
+          <label htmlFor="content">내용 :</label>
+          <textarea id="content" cols="23" rows="5">주말에 수업 끝나면 잠이나 실컷 자야지</textarea>
+          <br/>
+          <label htmlFor="done">완료 :</label>
+          <input type="checkbox" id="done" checked />
+          <br/>
+          <Link to="/list/1">수정</Link>
+          <Link to="/list/1">취소</Link>
+        </form>
       </div>
-    </div>
+    </>
   );
 }
 
