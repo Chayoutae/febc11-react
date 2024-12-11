@@ -6,9 +6,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function Detail() {
 
-  const { user }= useUserStore();
-
-  const navigate = useNavigate();
+  const { user } = useUserStore();
+  
   const axios = useAxiosInstance();
   const { type, _id } = useParams();
 
@@ -19,10 +18,11 @@ export default function Detail() {
     staleTime: 1000*10,
   });
 
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
 
   const removeItem = useMutation({
-    mutationFn: _id =>  axios.delete(`/posts/${_id}`),
+    mutationFn: _id => axios.delete(`/posts/${_id}`),
     onSuccess: () => {
       alert('게시물이 삭제되었습니다.');
       queryClient.invalidateQueries({ queryKey: ['posts', type] });
@@ -61,7 +61,7 @@ export default function Detail() {
                 <button type="submit" className="bg-red-500 py-1 px-4 text-base text-white font-semibold ml-2 hover:bg-amber-400 rounded">삭제</button>
               </>
             ) }
-          
+
           </div>
         </form>
       </section>
