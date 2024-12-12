@@ -13,8 +13,8 @@ export default function Login() {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, setError } = useForm({
     defaultValues:{
-      email: 'mang@m9.com',
-      password: 'mangmang99',
+      //email: 'mang@m9.com',
+      //password: 'mangmang99',
     }
   });
   const axios = useAxiosInstance();
