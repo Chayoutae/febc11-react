@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosInstance from "@hooks/useAxiosInstance";
 import useUserStore from "@zustand/userStore";
+import { Helmet } from "react-helmet-async";
 
 export default function List() {
 
@@ -30,6 +31,13 @@ export default function List() {
   const list = data.item.map(item => <ListItem key={item._id} item={ item } />);
 
   return (
+    <>
+    <Helmet>
+      <title>🦁🦁- 멋사컴</title>
+      <meta property="og:title" content="멋쟁이 사자처럼 커뮤니티" />
+      <meta property="og:description" content="멋쟁이 사자처럼 커뮤니티" />
+    </Helmet>
+   
     <main className="min-w-80 p-10">
       <div className="text-center py-4">
         <h2 className="pb-4 text-2xl font-bold text-gray-700 dark:text-gray-200">정보 공유</h2>
@@ -92,5 +100,6 @@ export default function List() {
 
       </section>
     </main>
+    </>
   );
 }
